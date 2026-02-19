@@ -16,6 +16,9 @@ def main():
             service.removeStudent(student_id)
         elif command == "exit":
             break
+        elif command == "export_csv":
+            file_path = input("CSV file path: ")
+            service.export_csv(file_path)
         else:
             print("Unknown command.")
 

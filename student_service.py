@@ -26,6 +26,7 @@ class StudentService:
                 return True
         print(f"Student id {student_id} not found.")
         return False
+
     def export_csv(self, file_path: str):
         """Export students to a CSV file."""
         import csv
@@ -34,3 +35,11 @@ class StudentService:
             writer.writerow(["id", "name"])
             for s in self._students:
                 writer.writerow([s.student_id, s.name])
+
+    def export_json(self, file_path: str):
+        """Export students to a JSON file."""
+        import json
+        data = [{"id": s.student_id, "name": s.name} for s in self._students]
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+

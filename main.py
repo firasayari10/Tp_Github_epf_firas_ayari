@@ -16,6 +16,10 @@ def main():
             service.removeStudent(student_id)
         elif command == "exit":
             break
+        elif command == "export_json":
+            file_path = input("JSON file path: ")
+            service.export_json(file_path)
+
         else:
             print("Unknown command.")
 
